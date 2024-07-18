@@ -1,6 +1,11 @@
+import PrimarySearchAppBar from "../ui/PrimarySearchAppBar.tsx";
 import React from "react";
 
 const Top = () => {
-    return <div>top</div>;
+    return (
+        <div>
+            <PrimarySearchAppBar />
+        </div>
+    );
 };
 export default Top;
