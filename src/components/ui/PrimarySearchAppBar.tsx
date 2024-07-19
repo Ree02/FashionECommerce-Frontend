@@ -25,8 +25,10 @@ const Search = styled("div")(({ theme }) => ({
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-        marginLeft: theme.spacing(3),
-        width: "auto",
+        width: "500px",
+    },
+    [theme.breakpoints.up("md")]: {
+        width: "500px",
     },
 }));
 
@@ -48,9 +50,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create("width"),
         width: "100%",
-        [theme.breakpoints.up("md")]: {
-            width: "50ch",
-        },
+    },
+}));
+
+const CustomToolbar = styled(Toolbar)(({ theme }) => ({
+    minHeight: "64px",
+    paddingLeft: "24px",
+    paddingRight: "0px",
+    [theme.breakpoints.up("sm")]: {
+        paddingLeft: "24px",
+        paddingRight: "8px",
     },
 }));
 
@@ -125,15 +134,16 @@ export default function PrimarySearchAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" sx={{ backgroundColor: MainColor }}>
-                <Toolbar>
+                <CustomToolbar>
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
                         sx={{
-                            display: { xs: "none", sm: "block" },
+                            display: { xs: "none", md: "block" },
                             fontWeight: "bold",
                             fontFamily: "monospace, sans-serif",
+                            marginRight: 2,
                         }}
                     >
                         ZOZOTOWN
@@ -188,7 +198,7 @@ export default function PrimarySearchAppBar() {
                             <MoreIcon />
                         </IconButton>
                     </Box>
-                </Toolbar>
+                </CustomToolbar>
             </AppBar>
             {renderMobileMenu}
         </Box>
