@@ -15,15 +15,18 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { BackgroundColor, MainColor } from "../functions/colors.tsx";
+import { LightFontColor } from "../functions/colors.tsx";
 
 const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: BackgroundColor,
+    backgroundColor: theme.palette.secondary.main,
     marginRight: theme.spacing(2),
     marginLeft: 0,
     width: "100%",
+    [theme.breakpoints.up("xs")]: {
+        width: "500px",
+    },
     [theme.breakpoints.up("sm")]: {
         width: "500px",
     },
@@ -43,7 +46,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
+    color: LightFontColor,
     fontWeight: "bold",
     "& .MuiInputBase-input": {
         padding: theme.spacing(1, 1, 1, 0),
@@ -59,7 +62,7 @@ const CustomToolbar = styled(Toolbar)(({ theme }) => ({
     paddingRight: "0px",
     [theme.breakpoints.up("sm")]: {
         paddingLeft: "24px",
-        paddingRight: "8px",
+        paddingRight: "0px",
     },
 }));
 
@@ -95,11 +98,7 @@ export default function PrimarySearchAppBar() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 4 new mails"
-                    color="inherit"
-                >
+                <IconButton size="large" color="default">
                     <Badge badgeContent={4} color="error">
                         <NotificationsNoneIcon />
                     </Badge>
@@ -107,11 +106,7 @@ export default function PrimarySearchAppBar() {
                 <p>お知らせ</p>
             </MenuItem>
             <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
-                >
+                <IconButton size="large" color="inherit">
                     <FavoriteBorderIcon />
                 </IconButton>
                 <p>お気に入り</p>
@@ -133,7 +128,7 @@ export default function PrimarySearchAppBar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ backgroundColor: MainColor }}>
+            <AppBar position="static" sx={{ backgroundColor: "primary" }}>
                 <CustomToolbar>
                     <Typography
                         variant="h6"
@@ -144,13 +139,14 @@ export default function PrimarySearchAppBar() {
                             fontWeight: "bold",
                             fontFamily: "monospace, sans-serif",
                             marginRight: 2,
+                            color: LightFontColor,
                         }}
                     >
                         ZOZOTOWN
                     </Typography>
                     <Search>
                         <SearchIconWrapper>
-                            <SearchIcon />
+                            <SearchIcon sx={{ color: LightFontColor }} />
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="すべてのアイテムから探す"
@@ -159,12 +155,12 @@ export default function PrimarySearchAppBar() {
                     </Search>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                        <IconButton size="large" color="inherit">
+                        <IconButton size="large" sx={{ color: LightFontColor }}>
                             <Badge badgeContent={4} color="error">
                                 <NotificationsNoneIcon />
                             </Badge>
                         </IconButton>
-                        <IconButton size="large" color="inherit">
+                        <IconButton size="large" sx={{ color: LightFontColor }}>
                             <FavoriteBorderIcon />
                         </IconButton>
                         <IconButton
@@ -172,16 +168,14 @@ export default function PrimarySearchAppBar() {
                             edge="end"
                             aria-controls={menuId}
                             aria-haspopup="true"
-                            color="inherit"
-                            sx={{ marginRight: "0px" }}
+                            sx={{ marginRight: "0px", color: LightFontColor }}
                         >
                             <ShoppingCartOutlinedIcon />
                         </IconButton>
                         <IconButton
                             size="large"
                             edge="end"
-                            color="inherit"
-                            sx={{ marginRight: "0px" }}
+                            sx={{ marginRight: "0px", color: LightFontColor }}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -193,7 +187,7 @@ export default function PrimarySearchAppBar() {
                             aria-controls={mobileMenuId}
                             aria-haspopup="true"
                             onClick={handleMobileMenuOpen}
-                            color="inherit"
+                            sx={{ color: LightFontColor }}
                         >
                             <MoreIcon />
                         </IconButton>
