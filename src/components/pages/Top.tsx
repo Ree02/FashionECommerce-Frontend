@@ -1,5 +1,6 @@
 import CategoryTabs from "../ui/CategoryTabs.tsx";
 import PrimarySearchAppBar from "../ui/PrimarySearchAppBar.tsx";
+import ProductCarousel from "../ui/ProductCarousel.tsx";
 import React from "react";
 
 const Top = () => {
@@ -7,6 +8,7 @@ const Top = () => {
         <div>
             <PrimarySearchAppBar />
             <CategoryTabs />
+            <ProductCarousel />
         </div>
     );
 };
