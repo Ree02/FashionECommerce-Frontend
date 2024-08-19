@@ -5,50 +5,38 @@ import "slick-carousel/slick/slick-theme.css";
 import ExpandCircleDownTwoToneIcon from "@mui/icons-material/ExpandCircleDownTwoTone";
 
 export default function ProductCarousel() {
-    // const items = [
-    //     { title: "name1", img: "http://placehold.it/500x200" },
-    //     { title: "name2", img: "http://placehold.it/500x200" },
-    //     { title: "name3", img: "http://placehold.it/500x200" },
-    //     { title: "name4", img: "http://placehold.it/500x200" },
-    //     { title: "name5", img: "http://placehold.it/500x200" },
-    //     { title: "name6", img: "http://placehold.it/500x200" },
-    // ];
+    const items = [
+        { title: "name1", img: "/img/pr1.png" },
+        { title: "name2", img: "/img/pr2.png" },
+        { title: "name3", img: "/img/pr3.png" },
+        { title: "name4", img: "/img/pr4.png" },
+        { title: "name5", img: "/img/pr5.png" },
+        { title: "name6", img: "/img/pr6.png" },
+    ];
     const settings = {
         dots: true,
         arrows: true,
         infinite: true,
         slidesToScroll: 1,
-        slidesToShow: 2,
+        slidesToShow: 3,
         speed: 500,
         autoplay: true,
         autoplaySpeed: 3000,
         className: "center",
         centerMode: true,
-        centerPadding: "60px",
         prevArrow: <SamplePrevArrow />,
         nextArrow: <SampleNextArrow />,
+        initialSlide: 0,
     };
     return (
         <>
             <Slider {...settings}>
-                <div style={{ backgroundColor: "red" }}>
-                    <h3>1</h3>
-                </div>
-                <div style={{ backgroundColor: "red" }}>
-                    <h3>2</h3>
-                </div>
-                <div style={{ backgroundColor: "red" }}>
-                    <h3>3</h3>
-                </div>
-                <div style={{ backgroundColor: "red" }}>
-                    <h3>4</h3>
-                </div>
-                <div style={{ backgroundColor: "red" }}>
-                    <h3>5</h3>
-                </div>
-                <div style={{ backgroundColor: "red" }}>
-                    <h3>6</h3>
-                </div>
+                {items.map((item, index) => (
+                    <div key={index}>
+                        <img src={item.img} alt={item.title} />
+                        <h3>{item.title}</h3>
+                    </div>
+                ))}
             </Slider>
         </>
     );
